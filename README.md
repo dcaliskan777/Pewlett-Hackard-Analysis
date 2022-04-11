@@ -74,6 +74,6 @@ In this inquery we create unique_titles table which contains entieremnt employee
 
 The head rows of the table is the following:
 
-![](Resources/![unique_titles](https://user-images.githubusercontent.com/99373486/162656277-80930f89-9013-411a-9996-3040c72efce5.png)
+![unique_titles](https://user-images.githubusercontent.com/99373486/162656277-80930f89-9013-411a-9996-3040c72efce5.png)
 
 ## Summary:
