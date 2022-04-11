@@ -142,4 +142,7 @@ In order to create this table, we used again DISTINCT ON () methods together wit
 
 ## Summary
 
-In order to answer 
+In order to answer the question " How many roles will need to be filled as the "silver tsunami" begins to make an impact?" we should find the sum of number of retiring employees per title in the retiring_titles. It is the sum, 25916+24926+9285+7636+3603+1090+2=72458.
+72458 roles will be needed.
+
+In order to answer if there are enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees, better to look at number of eligible retiring employees for each title.
