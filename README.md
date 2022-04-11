@@ -17,16 +17,30 @@ The purpose is determine the number of retiring employees per title, and to iden
 ### 1. Retirement by titles 
 We create retirement by titles by joining two tables, employees and titles, it is done by the following query:
 
-SELECT  e.emp_no,
-        e.first_name,
-		e.last_name,
-        ti.title,
-		ti.from_date,
-        ti.to_date        
-INTO retirement_titles
-FROM employees AS e
-    INNER JOIN titles AS ti
-        ON (e.emp_no = ti.emp_no)
-WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-ORDER BY e.emp_no;
+> SELECT  e.emp_no,
+> 
+>        e.first_name,
+>        
+>       e.last_name,
+>		
+>       ti.title,
+>       
+>       ti.from_date,
+>      
+>       ti.to_date  
+>            
+> INTO retirement_titles
+>     
+> FROM employees AS e
+>      
+> INNER JOIN titles AS ti  ON (e.emp_no = ti.emp_no)
+> 
+> WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+> 
+> ORDER BY e.emp_no;
+
+The head rows of the table is given in the following table:
+
+![](Resources/retirement_titles.png)
+
 ## Summary:
