@@ -39,7 +39,7 @@ We create retirement by titles by joining two tables, employees and titles, it i
 > 
 > ORDER BY e.emp_no;
 
-The head rows of the table is given in the following table:
+The head rows of the table is given in the following:
 
 ![](Resources/retirement_titles.png)
 
@@ -76,4 +76,70 @@ The head rows of the table is the following:
 
 ![unique_titles](https://user-images.githubusercontent.com/99373486/162656277-80930f89-9013-411a-9996-3040c72efce5.png)
 
-## Summary:
+### 3. Retiring employees per titles
+
+Let's count now retiring employees per titles, we do this by the following query:
+
+> SELECT COUNT(ut.emp_no), ut.title
+> 
+> INTO retiring_titles
+> 
+> FROM unique_titles AS ut
+> 
+> GROUP BY ut.title
+> 
+> ORDER BY count DESC;
+
+Here we use GROUP BY  and COUNT methods. The output is the following:
+
+![](Resources/retiring_titles.png)
+
+According to the table, the maximum number of retiring employees per titles is 25916, Senior Engineer; this is really large amount. The least number of retiring employees per titles is 2, manager which is reasonable. 
+
+### 4. Mentorship Eligibility 
+
+There are 1549 retiring employees who are eligible for mentorship program. The query for creating the table is the following:
+
+> SELECT DISTINCT ON (e.emp_no)
+> 
+>         e.emp_no,
+>         
+>         e.first_name,
+>         
+>		      e.last_name,
+>		      
+> 	      e.birth_date,
+> 	      
+>		      de.from_date,
+>		     
+>		      de.to_date,
+>		     
+>		      ti.title
+>		    
+> INTO mentorship_eligibility	
+> 	  
+> FROM employees AS e
+> 
+> INNER JOIN dept_emp as de
+> 
+> ON e.emp_no = de.emp_no
+> 
+> INNER JOIN titles as ti
+> 
+> ON e.emp_no = ti.emp_no
+> 
+> WHERE (de.to_date='9999-01-01') 
+> 
+> AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31') 
+>     
+> ORDER BY e.emp_no;
+
+The head rows are displayed in the following table:
+
+![](Resources/mentorship_eligibility.png)
+
+In order to create this table, we used again DISTINCT ON () methods together with joining multi tables.
+
+## Summary
+
+In order to answer 
