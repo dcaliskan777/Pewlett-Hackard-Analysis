@@ -43,4 +43,37 @@ The head rows of the table is given in the following table:
 
 ![](Resources/retirement_titles.png)
 
+If we look at the table, some employees are repeating. This is because they have switched titles over the years.
+These dublicates are needed to be removed. It will be done in the next section.
+
+### 2. Removing dublicates
+
+We remove dublicates by using DISTINCT ON () method. The query is as follows:
+
+> SELECT DISTINCT ON (rt.emp_no)
+> 
+>          rt.emp_no,
+>          
+>          rt.first_name,
+>          
+>	         rt.last_name,
+>	         
+>		       rt.title
+>		       
+> INTO unique_titles	
+> 	  
+> FROM retirement_titles AS rt
+> 
+> WHERE to_date='9999-01-01'
+> 
+> ORDER BY rt.emp_no ASC,
+> 
+>          rt.to_date DESC;
+
+In this inquery we create unique_titles table which contains entieremnt employees per titles, we keep only the most recent title of each employe.
+
+The head rows of the table is the following:
+
+![](Resources/![unique_titles](https://user-images.githubusercontent.com/99373486/162656277-80930f89-9013-411a-9996-3040c72efce5.png)
+
 ## Summary:
